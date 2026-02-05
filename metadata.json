@@ -1,0 +1,7 @@
+{
+  "name": "PlayStation.lk E-Commerce & Repair",
+  "description": "A premium PlayStation-themed e-commerce platform for gaming consoles, accessories, and professional repair services in Sri Lanka.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
