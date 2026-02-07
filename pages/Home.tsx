@@ -126,10 +126,15 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
         type="website"
       />
       {/* HERO SECTION - Professional Split Screen */}
-      <section className="relative min-h-[85vh] lg:min-h-[100vh] flex flex-col lg:flex-row overflow-hidden">
+      <section 
+        className="relative h-[78vh] lg:h-auto lg:min-h-[100vh] flex flex-col lg:flex-row overflow-hidden bg-cover bg-no-repeat lg:!bg-none"
+        style={{ backgroundImage: "url('/assets/hero-ps5.jpg')", backgroundPosition: '85% 12%' }}
+      >
+        {/* Mobile-only dark overlay for text readability */}
+        <div className="absolute inset-0 z-10 lg:hidden" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.35) 100%)' }}></div>
         
         {/* LEFT SIDE - Bold Typography */}
-        <div className="relative w-full lg:w-1/2 flex items-center justify-center px-5 sm:px-6 md:px-12 lg:px-16 xl:px-24 py-16 sm:py-24 lg:py-16 z-20 bg-black">
+        <div className="relative w-full lg:w-1/2 flex items-center justify-center px-5 sm:px-6 md:px-12 lg:px-16 xl:px-24 pt-16 sm:pt-20 lg:py-16 pb-6 sm:pb-10 lg:pb-16 z-20 bg-transparent lg:bg-black">
           <div className="max-w-xl w-full">
             
             {/* Minimal Tag */}
@@ -158,33 +163,33 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
             </p>
             
             {/* Button Layout */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-[fadeIn_1s_ease-out_0.8s_forwards]">
+            <div className="flex flex-row sm:flex-row gap-2.5 sm:gap-4 opacity-0 animate-[fadeIn_1s_ease-out_0.8s_forwards]">
               <Link 
                 to="/shop" 
-                className="group relative overflow-hidden bg-white text-black px-6 sm:px-8 md:px-10 py-4.5 sm:py-4 md:py-5 font-black text-[9px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gray-100 text-center active:scale-[0.97]"
+                className="group relative overflow-hidden bg-white text-black flex-1 sm:flex-none px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 font-black text-[8px] sm:text-[9px] tracking-[0.15em] sm:tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gray-100 text-center active:scale-[0.97]"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
                   SHOP NOW
-                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
                 </span>
               </Link>
               <Link 
                 to="/repairs" 
-                className="group px-6 sm:px-8 md:px-10 py-4.5 sm:py-4 md:py-5 font-black text-[9px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.25em] uppercase border border-white/20 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-500 flex items-center justify-center gap-2 sm:gap-3 text-center active:scale-[0.97]"
+                className="group flex-1 sm:flex-none px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 font-black text-[8px] sm:text-[9px] tracking-[0.15em] sm:tracking-[0.25em] uppercase border border-white/30 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-500 flex items-center justify-center gap-2 sm:gap-3 text-center active:scale-[0.97] backdrop-blur-sm"
               >
-                REPAIR NOW
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
+                REPAIR
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
               </Link>
             </div>
             
           </div>
         </div>
         
-        {/* RIGHT SIDE - Full Controller Image */}
-        <div className="relative lg:absolute lg:right-0 lg:top-0 w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-full z-10">
+        {/* RIGHT SIDE - Full Controller Image (desktop only) */}
+        <div className="hidden lg:block relative lg:absolute lg:right-0 lg:top-0 w-full lg:w-1/2 lg:h-full z-10">
           <div className="relative w-full h-full">
-            {/* Dark overlay for mobile */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent lg:bg-gradient-to-r lg:from-black lg:via-black/20 lg:to-transparent z-10"></div>
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent z-10"></div>
             
             {/* Controller Image */}
             <img 
@@ -192,9 +197,6 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
               alt="DualSense Wireless Controller" 
               className="w-full h-full object-cover object-center brightness-90 contrast-110 saturate-125"
             />
-            
-            {/* Additional Overlay for better text visibility */}
-            <div className="absolute inset-0 bg-black/30 lg:bg-transparent z-[5]"></div>
           </div>
         </div>
         
