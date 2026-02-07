@@ -142,10 +142,10 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
             {/* Main Headline - Two Line Design */}
             <div className="space-y-1 sm:space-y-2 md:space-y-3 mb-8 sm:mb-10 md:mb-12 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
               <h1 className="font-black leading-none uppercase text-white tracking-tighter">
-                <div className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem]">
+                <div className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem] whitespace-nowrap">
                   MASTER THE
                 </div>
-                <div className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                <div className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] whitespace-nowrap">
                   EXPERIENCE
                 </div>
               </h1>
