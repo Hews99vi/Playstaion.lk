@@ -4,7 +4,7 @@ import { Gamepad2, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black border-t border-white/5 pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-32 pb-10 sm:pb-12 md:pb-14 lg:pb-16 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-20">
+    <footer className="bg-black border-t border-white/5 pt-10 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-32 pb-20 sm:pb-12 md:pb-14 lg:pb-16 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-24">
         <div className="space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10">
           <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4">

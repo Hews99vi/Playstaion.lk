@@ -5,6 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <!-- Security Meta Tags -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+  
   <!-- Primary Meta Tags -->
   <title>PlayStation.lk | Sri Lanka's Premier Gaming Hardware Store</title>
   <meta name="title" content="PlayStation.lk | Sri Lanka's Premier Gaming Hardware Store">
@@ -165,6 +172,101 @@
       to { 
         opacity: 1; 
         transform: translateY(0);
+      }
+    }
+
+    /* ===== MOBILE-ONLY ENHANCEMENTS ===== */
+    @media (max-width: 1023px) {
+      /* Tap feedback for interactive elements */
+      button, a, [role="button"] {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.08);
+        touch-action: manipulation;
+      }
+
+      /* Active state micro-interaction */
+      .ps-card-hover:active {
+        transform: scale(0.97) !important;
+        transition: transform 0.15s ease !important;
+      }
+
+      .btn-primary:active {
+        transform: scale(0.96) !important;
+        opacity: 0.9;
+      }
+
+      .btn-secondary:active {
+        transform: scale(0.96) !important;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* Smooth scrolling momentum */
+      .mobile-scroll-snap {
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+      }
+
+      .mobile-scroll-snap > * {
+        scroll-snap-align: start;
+      }
+
+      /* Mobile menu slide animation */
+      @keyframes mobileMenuSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .mobile-menu-animate {
+        animation: mobileMenuSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Mobile stagger animation for list items */
+      @keyframes mobileStaggerIn {
+        from {
+          opacity: 0;
+          transform: translateX(-12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Improved touch target sizing */
+      input, select, textarea {
+        font-size: 16px !important; /* Prevents iOS zoom on focus */
+      }
+
+      /* Bottom safe area for notched phones */
+      .mobile-safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+      }
+
+      /* Mobile fade-up on scroll (CSS only version) */
+      @keyframes mobileFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    /* Safe area support for all devices */
+    @supports (padding: env(safe-area-inset-bottom)) {
+      @media (max-width: 1023px) {
+        footer {
+          padding-bottom: calc(16px + env(safe-area-inset-bottom));
+        }
       }
     }
   </style>

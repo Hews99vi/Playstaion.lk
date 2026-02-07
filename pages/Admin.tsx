@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2, Box, Activity, DollarSign, Package, X, Save, Terminal, ShieldAlert, Layers, Home, ChevronUp, ChevronDown, Eye, EyeOff, Search } from 'lucide-react';
 import { Product, Platform, Category, HomePageSection } from '../types';
 import SEO from '../components/SEO';
+import { sanitizeForDisplay, isCleanInput } from '../services/authService';
 
 interface AdminProps {
   products: Product[];
@@ -124,13 +125,36 @@ const Admin: React.FC<AdminProps> = ({ products, onUpdate, onAdd, onDelete }) =>
     const specsObject: Record<string, string> = {};
     specs.forEach(spec => {
       if (spec.key.trim() && spec.value.trim()) {
-        specsObject[spec.key.trim()] = spec.value.trim();
+        specsObject[sanitizeForDisplay(spec.key.trim())] = sanitizeForDisplay(spec.value.trim());
       }
     });
+
+    // Sanitize all text inputs to prevent XSS
+    const sanitizedName = sanitizeForDisplay(formData.name || '');
+    const sanitizedDescription = sanitizeForDisplay(formData.description || '');
+    
+    // Validate inputs for script injection
+    if (!isCleanInput(sanitizedName) || !isCleanInput(sanitizedDescription)) {
+      alert('Invalid input detected. Please remove any special characters or HTML tags.');
+      return;
+    }
+
+    // Validate image URLs - only allow https
+    const sanitizedImages = validImages.filter(url => {
+      try {
+        const parsed = new URL(url);
+        return parsed.protocol === 'https:' || parsed.protocol === 'http:';
+      } catch {
+        return false;
+      }
+    });
+
     const productData = {
       ...formData,
-      image: validImages[0] || formData.image || 'https://via.placeholder.com/600',
-      images: validImages,
+      name: sanitizedName,
+      description: sanitizedDescription,
+      image: sanitizedImages[0] || formData.image || 'https://via.placeholder.com/600',
+      images: sanitizedImages,
       rating: formData.rating || 5,
       specs: specsObject
     } as Product;
@@ -182,8 +206,9 @@ const Admin: React.FC<AdminProps> = ({ products, onUpdate, onAdd, onDelete }) =>
   };
 
   const addCategory = () => {
-    if (newCategory.trim() && !categories.includes(newCategory.trim())) {
-      setCategories([...categories, newCategory.trim()]);
+    const cleanCategory = sanitizeForDisplay(newCategory.trim());
+    if (cleanCategory && !categories.includes(cleanCategory) && isCleanInput(cleanCategory)) {
+      setCategories([...categories, cleanCategory]);
       setNewCategory('');
     }
   };

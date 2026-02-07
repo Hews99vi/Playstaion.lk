@@ -90,7 +90,7 @@ CREATE INDEX idx_products_created_at ON products(created_at DESC);
    npm run dev
    ```
 
-2. Login to admin (email: `admin@psl.lk`, password: `admin123`)
+2. Login to admin panel with your configured credentials (see `.env` file)
 
 3. Add/edit a product - it saves to Supabase!
 

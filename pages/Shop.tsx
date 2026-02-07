@@ -17,6 +17,7 @@ const Shop: React.FC<ShopProps> = ({ addToCart, products }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   useEffect(() => {
     if (location.state?.filter) {
@@ -63,15 +64,34 @@ const Shop: React.FC<ShopProps> = ({ addToCart, products }) => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 md:py-16 lg:py-24 flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-12 md:py-16 lg:py-24 pb-24 lg:pb-24 flex flex-col lg:flex-row gap-6 sm:gap-10 lg:gap-20">
       <SEO 
         title="Shop Gaming Hardware - PlayStation Consoles, Controllers & Games"
         description="Browse authentic PlayStation consoles, DualSense controllers, games, and accessories. Premium gaming hardware with verified authenticity and warranty in Sri Lanka."
         keywords="buy PS5 Sri Lanka, PlayStation store, gaming consoles online, DualSense controller, PS5 games Sri Lanka, gaming accessories"
       />
-      <aside className="w-full lg:w-72 space-y-8 sm:space-y-10 lg:space-y-16 shrink-0">
-        <div className="space-y-6 sm:space-y-7 md:space-y-8">
-          <div className="flex items-center gap-3 sm:gap-4 text-white/20">
+      <aside className="w-full lg:w-72 shrink-0">
+        {/* Mobile filter toggle button */}
+        <button 
+          onClick={() => setShowMobileFilters(!showMobileFilters)}
+          className="lg:hidden w-full flex items-center justify-between gap-3 px-4 py-3.5 glass border-white/10 mb-4 active:bg-white/5 transition-colors"
+        >
+          <div className="flex items-center gap-3 text-white/40">
+            <SlidersHorizontal className="w-3.5 h-3.5" />
+            <span className="text-[9px] font-black uppercase tracking-[0.3em]">Filters</span>
+          </div>
+          <div className="flex items-center gap-2">
+            {(activePlatform !== 'All' || activeCategory !== 'All' || searchQuery) && (
+              <span className="bg-white text-black text-[7px] font-black px-1.5 py-0.5 uppercase tracking-wider">
+                Active
+              </span>
+            )}
+            <span className={`text-white/30 text-xs transition-transform duration-300 ${showMobileFilters ? 'rotate-180' : ''}`}>▾</span>
+          </div>
+        </button>
+
+        <div className={`space-y-6 sm:space-y-7 md:space-y-8 ${showMobileFilters ? 'block' : 'hidden lg:block'} lg:space-y-16`}>
+          <div className="hidden lg:flex items-center gap-3 sm:gap-4 text-white/20">
             <SlidersHorizontal className="w-3 h-3 sm:w-4 sm:h-4" />
             <h4 className="text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.5em]">Triage Filter</h4>
           </div>
@@ -103,18 +123,19 @@ const Shop: React.FC<ShopProps> = ({ addToCart, products }) => {
             </div>
           </div>
           
-          <div className="space-y-6 sm:space-y-8 lg:space-y-12">
-            <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-4 sm:space-y-8 lg:space-y-12">
+            <div className="space-y-2 sm:space-y-4">
               <span className="text-[7px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white/20">System Platform</span>
-              <div className="flex flex-col gap-1">
+              {/* Horizontal scroll on mobile, vertical on desktop */}
+              <div className="flex lg:flex-col gap-1.5 lg:gap-1 overflow-x-auto lg:overflow-visible no-scrollbar pb-1 lg:pb-0 -mx-1 lg:mx-0 px-1 lg:px-0">
                 {platforms.map(p => (
                   <button 
                     key={p} 
-                    onClick={() => { setActivePlatform(p); setActiveCategory('All'); }}
-                    className={`w-full text-left px-3 sm:px-4 md:px-5 py-2.5 sm:py-2.5 md:py-3 text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-widest uppercase transition-all border-l-2 ${
+                    onClick={() => { setActivePlatform(p); setActiveCategory('All'); setShowMobileFilters(false); }}
+                    className={`whitespace-nowrap lg:w-full text-left px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-widest uppercase transition-all border-l-0 lg:border-l-2 active:scale-95 ${
                       activePlatform === p 
                         ? 'bg-white text-black border-white' 
-                        : 'hover:bg-white/5 border-transparent text-white/40'
+                        : 'hover:bg-white/5 border-transparent text-white/40 glass lg:bg-transparent'
                     }`}
                   >
                     {p}
@@ -123,17 +144,17 @@ const Shop: React.FC<ShopProps> = ({ addToCart, products }) => {
               </div>
             </div>
 
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-2 sm:space-y-4">
               <span className="text-[7px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white/20">Hardware Class</span>
-              <div className="flex flex-col gap-1">
+              <div className="flex lg:flex-col gap-1.5 lg:gap-1 overflow-x-auto lg:overflow-visible no-scrollbar pb-1 lg:pb-0 -mx-1 lg:mx-0 px-1 lg:px-0">
                 {categories.map(c => (
                   <button 
                     key={c}
-                    onClick={() => { setActiveCategory(c); setActivePlatform('All'); }}
-                    className={`w-full text-left px-3 sm:px-4 md:px-5 py-2.5 sm:py-2.5 md:py-3 text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-widest uppercase transition-all border-l-2 ${
+                    onClick={() => { setActiveCategory(c); setActivePlatform('All'); setShowMobileFilters(false); }}
+                    className={`whitespace-nowrap lg:w-full text-left px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-widest uppercase transition-all border-l-0 lg:border-l-2 active:scale-95 ${
                       activeCategory === c 
                         ? 'bg-white text-black border-white' 
-                        : 'hover:bg-white/5 border-transparent text-white/40'
+                        : 'hover:bg-white/5 border-transparent text-white/40 glass lg:bg-transparent'
                     }`}
                   >
                     {c}
@@ -146,9 +167,9 @@ const Shop: React.FC<ShopProps> = ({ addToCart, products }) => {
       </aside>
 
       <main className="flex-1 space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 min-w-0">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 md:gap-8 border-b border-white/5 pb-5 sm:pb-6 md:pb-8">
-          <div className="space-y-2">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic uppercase tracking-tighter break-words">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6 md:gap-8 border-b border-white/5 pb-4 sm:pb-6 md:pb-8">
+          <div className="space-y-1 sm:space-y-2">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic uppercase tracking-tighter break-words">
               {searchQuery ? 'Search Results' : activePlatform !== 'All' ? activePlatform : activeCategory !== 'All' ? activeCategory : 'Universal'} <span className="text-outline">Archive</span>
             </h1>
             <p className="text-[8px] sm:text-[9px] md:text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.3em]">
@@ -175,23 +196,23 @@ const Shop: React.FC<ShopProps> = ({ addToCart, products }) => {
           </div>
         </div>
 
-        <div className={`grid gap-3 sm:gap-4 md:gap-6 lg:gap-8 ${viewMode === 'grid' ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3' : 'grid-cols-1'}`}>
+        <div className={`grid gap-1.5 sm:gap-4 md:gap-6 lg:gap-8 ${viewMode === 'grid' ? 'grid-cols-2 sm:grid-cols-2 xl:grid-cols-3' : 'grid-cols-1'}`}>
           {filteredProducts.map(product => (
             <Link to={`/product/${product.id}`} key={product.id} className={`group glass flex ${viewMode === 'list' ? 'flex-col sm:flex-row sm:h-48 md:h-52' : 'flex-col'} ps-card-hover relative overflow-hidden`}>
               <div className={`relative ${viewMode === 'list' ? 'w-full sm:w-48 md:w-52 h-48 sm:h-full' : 'aspect-square'} overflow-hidden bg-black/40 border-r border-white/5 shrink-0`}>
                 <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                <div className={`absolute top-3 sm:top-4 left-3 sm:left-4 w-1.5 h-1.5 rounded-full ${getStatusBg(product.stockStatus)}`}></div>
+                <div className={`absolute top-2 sm:top-4 left-2 sm:left-4 w-1.5 h-1.5 rounded-full ${getStatusBg(product.stockStatus)}`}></div>
               </div>
-              <div className="p-4 sm:p-5 md:p-6 lg:p-8 flex-1 flex flex-col justify-between min-w-0">
-                <div className="space-y-1.5 sm:space-y-2">
+              <div className="p-3 sm:p-5 md:p-6 lg:p-8 flex-1 flex flex-col justify-between min-w-0">
+                <div className="space-y-1 sm:space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-[7px] sm:text-[8px] font-black text-white/30 uppercase tracking-widest">{product.platform}</span>
+                    <span className="text-[6px] sm:text-[8px] font-black text-white/30 uppercase tracking-widest">{product.platform}</span>
                     <ArrowUpRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-0 group-hover:opacity-40 transition-opacity" />
                   </div>
-                  <h3 className="font-bold text-sm sm:text-base md:text-lg leading-tight uppercase tracking-tight group-hover:text-white transition-colors break-words line-clamp-2">{product.name}</h3>
+                  <h3 className="font-bold text-[11px] sm:text-base md:text-lg leading-tight uppercase tracking-tight group-hover:text-white transition-colors break-words line-clamp-2">{product.name}</h3>
                 </div>
-                <div className="flex items-end justify-between mt-3 sm:mt-4">
-                  <div className="font-black text-lg sm:text-xl md:text-2xl italic tracking-tighter">Rs. {product.price.toLocaleString()}</div>
+                <div className="flex items-end justify-between mt-2 sm:mt-4">
+                  <div className="font-black text-sm sm:text-xl md:text-2xl italic tracking-tighter">Rs. {product.price.toLocaleString()}</div>
                 </div>
               </div>
             </Link>

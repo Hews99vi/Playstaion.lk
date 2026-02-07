@@ -126,10 +126,10 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
         type="website"
       />
       {/* HERO SECTION - Professional Split Screen */}
-      <section className="relative min-h-[100vh] flex flex-col lg:flex-row overflow-hidden">
+      <section className="relative min-h-[85vh] lg:min-h-[100vh] flex flex-col lg:flex-row overflow-hidden">
         
         {/* LEFT SIDE - Bold Typography */}
-        <div className="relative w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 py-20 sm:py-24 lg:py-16 z-20 bg-black">
+        <div className="relative w-full lg:w-1/2 flex items-center justify-center px-5 sm:px-6 md:px-12 lg:px-16 xl:px-24 py-16 sm:py-24 lg:py-16 z-20 bg-black">
           <div className="max-w-xl w-full">
             
             {/* Minimal Tag */}
@@ -142,10 +142,10 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
             {/* Main Headline - Two Line Design */}
             <div className="space-y-1 sm:space-y-2 md:space-y-3 mb-8 sm:mb-10 md:mb-12 opacity-0 animate-[fadeIn_1s_ease-out_0.4s_forwards]">
               <h1 className="font-black leading-none uppercase text-white tracking-tighter">
-                <div className="text-[2rem] xs:text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem]">
+                <div className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem]">
                   MASTER THE
                 </div>
-                <div className="text-[2rem] xs:text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                <div className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
                   EXPERIENCE
                 </div>
               </h1>
@@ -161,19 +161,19 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-[fadeIn_1s_ease-out_0.8s_forwards]">
               <Link 
                 to="/shop" 
-                className="group relative overflow-hidden bg-white text-black px-6 sm:px-8 md:px-10 py-4 sm:py-4 md:py-5 font-black text-[8px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gray-100 text-center"
+                className="group relative overflow-hidden bg-white text-black px-6 sm:px-8 md:px-10 py-4.5 sm:py-4 md:py-5 font-black text-[9px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gray-100 text-center active:scale-[0.97]"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
                   SHOP NOW
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
                 </span>
               </Link>
               <Link 
                 to="/repairs" 
-                className="group px-6 sm:px-8 md:px-10 py-4 sm:py-4 md:py-5 font-black text-[8px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.25em] uppercase border border-white/20 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-500 flex items-center justify-center gap-2 sm:gap-3 text-center"
+                className="group px-6 sm:px-8 md:px-10 py-4.5 sm:py-4 md:py-5 font-black text-[9px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.25em] uppercase border border-white/20 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-500 flex items-center justify-center gap-2 sm:gap-3 text-center active:scale-[0.97]"
               >
-                LEARN MORE
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
+                REPAIR NOW
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
               </Link>
             </div>
             
@@ -181,7 +181,7 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
         </div>
         
         {/* RIGHT SIDE - Full Controller Image */}
-        <div className="relative lg:absolute lg:right-0 lg:top-0 w-full lg:w-1/2 h-[50vh] lg:h-full z-10">
+        <div className="relative lg:absolute lg:right-0 lg:top-0 w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-full z-10">
           <div className="relative w-full h-full">
             {/* Dark overlay for mobile */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent lg:bg-gradient-to-r lg:from-black lg:via-black/20 lg:to-transparent z-10"></div>
@@ -201,10 +201,10 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
       </section>
 
       {/* Subsequent sections below the fold */}
-      <div className="space-y-16 sm:space-y-24 lg:space-y-32 pb-16 sm:pb-24 lg:pb-32 mt-12 sm:mt-16 lg:mt-24 relative z-10">
+      <div className="space-y-14 sm:space-y-24 lg:space-y-32 pb-24 sm:pb-24 lg:pb-32 mt-10 sm:mt-16 lg:mt-24 relative z-10">
         {/* Minimal Category Grid */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:px-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-1">
             {categoryTiles.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -212,7 +212,7 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
                   key={idx}
                   to="/shop"
                   state={{ filter: item.filter }}
-                  className="group relative glass min-h-[260px] sm:min-h-[300px] md:min-h-[320px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 md:p-8 ps-card-hover"
+                  className="group relative glass min-h-[180px] sm:min-h-[300px] md:min-h-[320px] overflow-hidden flex flex-col justify-end p-4 sm:p-7 md:p-8 ps-card-hover"
                 >
                   <div className="absolute inset-0 z-0">
                     <video 
@@ -227,9 +227,9 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
                   <div className="absolute top-8 right-8 opacity-[0.02] transition-all z-10">
                     <Icon className="w-16 h-16" />
                   </div>
-                  <div className="relative z-20 space-y-1">
-                    <span className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em]">{item.sub}</span>
-                    <h3 className="text-3xl font-black italic uppercase tracking-tighter leading-tight">{item.label}</h3>
+                  <div className="relative z-20 space-y-0.5 sm:space-y-1">
+                    <span className="text-[7px] sm:text-[8px] font-black text-white/30 uppercase tracking-[0.2em] sm:tracking-[0.3em]">{item.sub}</span>
+                    <h3 className="text-xl sm:text-3xl font-black italic uppercase tracking-tighter leading-tight">{item.label}</h3>
                   </div>
                 </Link>
               )
@@ -239,35 +239,35 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
 
         {/* Minimal Product Grid */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:px-20 relative">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 lg:mb-16 gap-6 sm:gap-8">
-            <div className="space-y-2 sm:space-y-3">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 lg:mb-16 gap-4 sm:gap-8">
+            <div className="space-y-1.5 sm:space-y-3">
               <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-8 sm:w-10 h-[1px] bg-white/20"></div>
+                <div className="w-6 sm:w-10 h-[1px] bg-white/20"></div>
                 <span className="text-[8px] sm:text-[9px] font-black text-white/30 tracking-[0.3em] sm:tracking-[0.4em] uppercase">Inventory</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-none">PREMIER <span className="text-outline">ARCHIVES</span></h2>
+              <h2 className="text-2xl sm:text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-none">PREMIER <span className="text-outline">ARCHIVES</span></h2>
             </div>
             <Link to="/shop" className="text-[8px] sm:text-[9px] font-black tracking-[0.3em] text-white/30 hover:text-white transition-all uppercase self-start md:self-auto">VIEW ALL →</Link>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-1">
             {products.slice(0, 4).map((product) => (
               <Link to={`/product/${product.id}`} key={product.id} className="group flex flex-col ps-card-hover glass">
                 <div className="relative aspect-square overflow-hidden bg-black/40">
                   <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
-                    <div className={`w-2 h-2 ${getStatusBg(product.stockStatus)}`}></div>
+                  <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4">
+                    <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 ${getStatusBg(product.stockStatus)}`}></div>
                   </div>
                 </div>
-                <div className="p-4 sm:p-5 md:p-6 flex-1 flex flex-col space-y-3 sm:space-y-4">
-                  <div className="space-y-1">
-                    <span className="text-[7px] sm:text-[8px] font-black text-white/20 uppercase tracking-[0.2em]">{product.platform}</span>
-                    <h3 className="font-bold text-sm sm:text-base leading-tight uppercase tracking-tight line-clamp-2">{product.name}</h3>
+                <div className="p-3 sm:p-5 md:p-6 flex-1 flex flex-col space-y-2 sm:space-y-4">
+                  <div className="space-y-0.5 sm:space-y-1">
+                    <span className="text-[6px] sm:text-[8px] font-black text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em]">{product.platform}</span>
+                    <h3 className="font-bold text-[11px] sm:text-base leading-tight uppercase tracking-tight line-clamp-2">{product.name}</h3>
                   </div>
                   <div className="mt-auto flex items-end justify-between">
-                    <div className="font-black text-lg sm:text-xl tracking-tighter italic">Rs. {product.price.toLocaleString()}</div>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all shrink-0">
-                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <div className="font-black text-sm sm:text-xl tracking-tighter italic">Rs. {product.price.toLocaleString()}</div>
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all shrink-0">
+                      <ArrowRight className="w-2.5 h-2.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
                 </div>
@@ -282,16 +282,16 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
           if (sectionProducts.length === 0) return null;
 
           return (
-            <section key={section.id} className="max-w-7xl mx-auto px-10 lg:px-20 relative">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-                <div className="space-y-3">
-                  <div className="flex items-center gap-4">
-                    <div className={`w-10 h-[1px] bg-${getAccentColorClass(section.accentColor)}`}></div>
-                    <span className={`text-[9px] font-black text-${getTextAccentColorClass(section.accentColor)} tracking-[0.4em] uppercase`}>
+            <section key={section.id} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 relative">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-16 gap-4 sm:gap-8">
+                <div className="space-y-1.5 sm:space-y-3">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className={`w-6 sm:w-10 h-[1px] bg-${getAccentColorClass(section.accentColor)}`}></div>
+                    <span className={`text-[8px] sm:text-[9px] font-black text-${getTextAccentColorClass(section.accentColor)} tracking-[0.3em] sm:tracking-[0.4em] uppercase`}>
                       {section.subtitle}
                     </span>
                   </div>
-                  <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none">
+                  <h2 className="text-2xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none">
                     {section.title.split(' ').map((word, i) => 
                       i === section.title.split(' ').length - 1 ? (
                         <span key={i} className="text-outline">{word}</span>
@@ -301,29 +301,29 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
                     )}
                   </h2>
                 </div>
-                <Link to="/shop" className="text-[9px] font-black tracking-[0.3em] text-white/30 hover:text-white transition-all uppercase">
+                <Link to="/shop" className="text-[8px] sm:text-[9px] font-black tracking-[0.3em] text-white/30 hover:text-white transition-all uppercase self-start md:self-auto">
                   VIEW ALL →
                 </Link>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-1">
                 {sectionProducts.map((product) => (
                   <Link to={`/product/${product.id}`} key={product.id} className="group flex flex-col ps-card-hover glass">
                     <div className="relative aspect-square overflow-hidden bg-black/40">
                       <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      <div className="absolute top-4 right-4">
-                        <div className={`w-2 h-2 ${getStatusBg(product.stockStatus)}`}></div>
+                      <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4">
+                        <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 ${getStatusBg(product.stockStatus)}`}></div>
                       </div>
                     </div>
-                    <div className="p-6 flex-1 flex flex-col space-y-4">
-                      <div className="space-y-1">
-                        <span className="text-[8px] font-black text-white/20 uppercase tracking-[0.2em]">{product.platform}</span>
-                        <h3 className="font-bold text-base leading-tight uppercase tracking-tight">{product.name}</h3>
+                    <div className="p-3 sm:p-6 flex-1 flex flex-col space-y-2 sm:space-y-4">
+                      <div className="space-y-0.5 sm:space-y-1">
+                        <span className="text-[6px] sm:text-[8px] font-black text-white/20 uppercase tracking-[0.15em] sm:tracking-[0.2em]">{product.platform}</span>
+                        <h3 className="font-bold text-[11px] sm:text-base leading-tight uppercase tracking-tight line-clamp-2">{product.name}</h3>
                       </div>
                       <div className="mt-auto flex items-end justify-between">
-                        <div className="font-black text-xl tracking-tighter italic">Rs. {product.price.toLocaleString()}</div>
-                        <div className="w-8 h-8 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                          <ArrowRight className="w-4 h-4" />
+                        <div className="font-black text-sm sm:text-xl tracking-tighter italic">Rs. {product.price.toLocaleString()}</div>
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all shrink-0">
+                          <ArrowRight className="w-2.5 h-2.5 sm:w-4 sm:h-4" />
                         </div>
                       </div>
                     </div>
@@ -335,28 +335,28 @@ const Home: React.FC<HomeProps> = ({ addToCart, products }) => {
         })}
 
         {/* Engineering Section */}
-        <section className="max-w-7xl mx-auto px-10">
-          <div className="glass p-16 md:p-24 border-white/5 relative overflow-hidden group">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="glass p-8 sm:p-12 md:p-24 border-white/5 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-transparent opacity-50"></div>
-            <div className="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-white/5 transition-all group-hover:w-40 group-hover:h-40 group-hover:border-white/20"></div>
+            <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 border-t-2 border-r-2 border-white/5 transition-all group-hover:w-40 group-hover:h-40 group-hover:border-white/20"></div>
             
-            <div className="flex flex-col lg:flex-row items-center gap-20 relative z-10">
-              <div className="lg:w-3/5 space-y-10 text-center lg:text-left">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 justify-center lg:justify-start">
-                    <ShieldCheck className="w-4 h-4 text-blue-500" />
-                    <span className="text-[10px] font-black text-blue-500 tracking-[0.6em] uppercase">Engineering Grade Restoration</span>
+            <div className="flex flex-col lg:flex-row items-center gap-10 sm:gap-16 lg:gap-20 relative z-10">
+              <div className="lg:w-3/5 space-y-6 sm:space-y-10 text-center lg:text-left">
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start">
+                    <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500" />
+                    <span className="text-[8px] sm:text-[10px] font-black text-blue-500 tracking-[0.4em] sm:tracking-[0.6em] uppercase">Engineering Grade Restoration</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.9]">TECHNICAL <br/><span className="text-outline">TRIAGE.</span></h2>
-                  <p className="text-white/40 text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0">Precision diagnostics and component restoration for all gaming architecture. Our laboratory restores peak performance capability.</p>
+                  <h2 className="text-4xl sm:text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.9]">TECHNICAL <br/><span className="text-outline">TRIAGE.</span></h2>
+                  <p className="text-white/40 text-sm sm:text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0">Precision diagnostics and component restoration for all gaming architecture. Our laboratory restores peak performance capability.</p>
                 </div>
-                <Link to="/repairs" className="inline-block btn-primary px-16 py-6 shadow-2xl">
+                <Link to="/repairs" className="inline-block btn-primary px-10 sm:px-16 py-5 sm:py-6 shadow-2xl text-xs sm:text-sm active:scale-[0.97]">
                   INITIATE DIAGNOSTIC
                 </Link>
               </div>
-              <div className="lg:w-2/5 flex justify-center">
-                <div className="w-64 h-64 border border-white/5 flex items-center justify-center relative rotate-45 group-hover:rotate-0 transition-all duration-1000">
-                  <Settings className="w-24 h-24 text-white/10 group-hover:text-blue-500/40 transition-colors" />
+              <div className="lg:w-2/5 flex justify-center hidden sm:flex">
+                <div className="w-48 h-48 sm:w-64 sm:h-64 border border-white/5 flex items-center justify-center relative rotate-45 group-hover:rotate-0 transition-all duration-1000">
+                  <Settings className="w-16 h-16 sm:w-24 sm:h-24 text-white/10 group-hover:text-blue-500/40 transition-colors" />
                   <div className="absolute inset-0 border border-white/5 -m-4 animate-pulse"></div>
                 </div>
               </div>

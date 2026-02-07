@@ -49,7 +49,7 @@ const Cart: React.FC<CartProps> = ({ cart, removeFromCart, updateQuantity, clear
 
   if (cart.length === 0) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-32 lg:py-40 text-center space-y-6 sm:space-y-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-32 lg:py-40 pb-28 lg:pb-40 text-center space-y-6 sm:space-y-10">
         <SEO 
           title="Shopping Cart - Your Gaming Hardware Selection"
           description="Review your selected PlayStation hardware and accessories before checkout. Secure ordering with multiple payment options in Sri Lanka."
@@ -70,52 +70,54 @@ const Cart: React.FC<CartProps> = ({ cart, removeFromCart, updateQuantity, clear
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 md:py-16 lg:py-24 flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-12 md:py-16 lg:py-24 pb-28 lg:pb-24 flex flex-col lg:flex-row gap-6 sm:gap-10 lg:gap-20">
       <SEO 
         title="Shopping Cart - Review Your Order"
         description="Review your gaming hardware selection and proceed to checkout. Secure payment options and fast delivery across Sri Lanka."
         noindex={true}
       />
       <div className="flex-1 space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 min-w-0">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between border-b border-white/5 pb-5 sm:pb-6 md:pb-8 gap-3 sm:gap-0">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic uppercase tracking-tighter">Aquisition <span className="opacity-20">Manifest</span></h1>
-          <button onClick={clearCart} className="text-[8px] sm:text-[9px] md:text-[10px] font-black text-white/20 hover:text-white transition-all uppercase tracking-[0.25em] sm:tracking-[0.3em]">Clear All</button>
+        <div className="flex flex-row items-end justify-between border-b border-white/5 pb-4 sm:pb-6 md:pb-8">
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic uppercase tracking-tighter">Aquisition <span className="opacity-20">Manifest</span></h1>
+          <button onClick={clearCart} className="text-[8px] sm:text-[9px] md:text-[10px] font-black text-white/20 hover:text-white transition-all uppercase tracking-[0.25em] sm:tracking-[0.3em] active:text-red-400">Clear All</button>
         </div>
 
         <div className="space-y-3 sm:space-y-4 md:space-y-6">
           {cart.map((item) => (
-            <div key={item.id} className="glass p-3 sm:p-4 md:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-6 lg:gap-10 ps-card-hover group border-white/5">
-              <div className="w-full sm:w-20 md:w-24 lg:w-32 h-20 sm:h-20 md:h-24 lg:h-32 overflow-hidden bg-white/5 shrink-0">
+            <div key={item.id} className="glass p-3 sm:p-4 md:p-6 lg:p-8 flex flex-row items-center gap-3 sm:gap-4 md:gap-6 lg:gap-10 ps-card-hover group border-white/5">
+              <div className="w-16 h-16 sm:w-20 md:w-24 lg:w-32 sm:h-20 md:h-24 lg:h-32 overflow-hidden bg-white/5 shrink-0">
                 <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
               </div>
-              <div className="flex-1 space-y-1 sm:space-y-1.5 md:space-y-2 min-w-0">
+              <div className="flex-1 space-y-0.5 sm:space-y-1.5 md:space-y-2 min-w-0">
                 <span className="text-[6px] sm:text-[7px] md:text-[8px] font-black text-white/20 uppercase tracking-widest">{item.platform}</span>
-                <h3 className="text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase italic break-words line-clamp-2">{item.name}</h3>
-                <p className="text-lg sm:text-xl md:text-2xl font-black italic tracking-tighter">Rs. {item.price.toLocaleString()}</p>
+                <h3 className="text-[11px] sm:text-base md:text-lg font-bold tracking-tight uppercase italic break-words line-clamp-1 sm:line-clamp-2">{item.name}</h3>
+                <p className="text-sm sm:text-xl md:text-2xl font-black italic tracking-tighter">Rs. {item.price.toLocaleString()}</p>
               </div>
-              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 glass border-white/10 p-1.5 sm:p-2 self-start sm:self-auto">
-                <button onClick={() => updateQuantity(item.id, -1)} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Decrease quantity"><Minus className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3" /></button>
-                <span className="font-black text-[10px] sm:text-xs w-4 sm:w-5 md:w-6 text-center">{item.quantity}</span>
-                <button onClick={() => updateQuantity(item.id, 1)} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Increase quantity"><Plus className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3" /></button>
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 lg:gap-6 shrink-0">
+                <div className="flex items-center gap-1 sm:gap-3 md:gap-4 glass border-white/10 p-1 sm:p-2">
+                  <button onClick={() => updateQuantity(item.id, -1)} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center hover:bg-white/10 transition-colors active:bg-white/20" aria-label="Decrease quantity"><Minus className="w-2.5 h-2.5 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3" /></button>
+                  <span className="font-black text-[10px] sm:text-xs w-4 sm:w-5 md:w-6 text-center">{item.quantity}</span>
+                  <button onClick={() => updateQuantity(item.id, 1)} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center hover:bg-white/10 transition-colors active:bg-white/20" aria-label="Increase quantity"><Plus className="w-2.5 h-2.5 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3" /></button>
+                </div>
+                <button onClick={() => removeFromCart(item.id)} className="opacity-20 hover:opacity-100 text-red-500 transition-all p-2 sm:p-4 active:opacity-100" aria-label="Remove item">
+                  <Trash2 className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                </button>
               </div>
-              <button onClick={() => removeFromCart(item.id)} className="opacity-20 hover:opacity-100 text-red-500 transition-all p-3 sm:p-4 self-start sm:self-auto" aria-label="Remove item">
-                <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
             </div>
           ))}
         </div>
 
         {/* Payment Confirmation Section */}
-        <div className={`glass p-6 sm:p-10 lg:p-12 border-t-2 space-y-6 sm:space-y-8 lg:space-y-10 transition-all duration-1000 ${
+        <div className={`glass p-4 sm:p-10 lg:p-12 border-t-2 space-y-4 sm:space-y-8 lg:space-y-10 transition-all duration-1000 ${
           activeOrderId 
             ? 'border-t-white bg-white/[0.04] shadow-[0_0_50px_rgba(255,255,255,0.05)]' 
             : 'border-t-white/10 border-white/5'
         }`}>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
             <div className="flex items-center gap-4 sm:gap-6">
-              <Camera className={`w-8 h-8 sm:w-10 sm:h-10 shrink-0 ${activeOrderId ? 'text-white' : 'text-white/20'}`} />
+              <Camera className={`w-6 h-6 sm:w-10 sm:h-10 shrink-0 ${activeOrderId ? 'text-white' : 'text-white/20'}`} />
               <div>
-                <h2 className="text-xl sm:text-2xl font-black italic uppercase tracking-tighter">Confirm Payment Protocol</h2>
+                <h2 className="text-base sm:text-2xl font-black italic uppercase tracking-tighter">Confirm Payment Protocol</h2>
                 <p className="text-[9px] sm:text-[10px] font-bold text-white/30 tracking-[0.3em] sm:tracking-[0.4em] uppercase">
                   {activeOrderId ? 'Awaiting Manual Validation' : 'Manual validation of bank transfers'}
                 </p>

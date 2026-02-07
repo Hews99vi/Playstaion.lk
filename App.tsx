@@ -19,15 +19,36 @@ import Admin from './pages/Admin';
 import { CartItem, Product, User } from './types';
 import { MOCK_PRODUCTS } from './constants';
 import { supabaseService } from './services/supabaseService';
+import { getSecureSession, destroySession, refreshSession } from './services/authService';
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [user, setUser] = useState<User | null>(() => {
-    const saved = localStorage.getItem('psl_session');
-    return saved ? JSON.parse(saved) : null;
+    const session = getSecureSession();
+    if (session && session.role === 'admin') {
+      return { id: session.id, email: '', name: session.name, role: 'admin' as const };
+    }
+    return null;
   });
+
+  // Periodically validate session is still valid
+  useEffect(() => {
+    const checkSession = () => {
+      const session = getSecureSession();
+      if (user && !session) {
+        // Session expired or was tampered with
+        setUser(null);
+      } else if (session) {
+        // Refresh session on activity
+        refreshSession();
+      }
+    };
+    
+    const interval = setInterval(checkSession, 60 * 1000); // Check every minute
+    return () => clearInterval(interval);
+  }, [user]);
 
   // Load products from Supabase on mount and subscribe to real-time changes
   useEffect(() => {
@@ -98,12 +119,12 @@ const App: React.FC = () => {
 
   const handleLogin = (u: User) => {
     setUser(u);
-    localStorage.setItem('psl_session', JSON.stringify(u));
+    // Session is already created in Login component via createSecureSession
   };
 
   const handleLogout = () => {
     setUser(null);
-    localStorage.removeItem('psl_session');
+    destroySession();
   };
 
   const updateProduct = async (updated: Product) => {

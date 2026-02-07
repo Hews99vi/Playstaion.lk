@@ -79,7 +79,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ addToCart, products }) =>
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 md:py-16 lg:py-24 space-y-16 sm:space-y-20 md:space-y-28 lg:space-y-40">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-12 md:py-16 lg:py-24 pb-28 lg:pb-24 space-y-12 sm:space-y-20 md:space-y-28 lg:space-y-40">
       <SEO 
         title={`${product.name} - ${product.platform} Gaming Hardware`}
         description={`${product.name} available in Sri Lanka. ${product.description} Premium ${product.category.toLowerCase()} with authentic warranty. Price: Rs. ${product.price.toLocaleString()}`}
@@ -87,7 +87,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ addToCart, products }) =>
         image={product.image}
         type="product"
       />
-      <div className="space-y-10 sm:space-y-12 md:space-y-16 lg:space-y-24">
+      <div className="space-y-8 sm:space-y-12 md:space-y-16 lg:space-y-24">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           <Link to="/shop" className="inline-flex items-center gap-2 sm:gap-3 md:gap-4 text-[8px] sm:text-[9px] md:text-[10px] font-black text-white/30 hover:text-white transition-all uppercase tracking-[0.25em] sm:tracking-[0.3em] md:tracking-[0.4em]">
             <ChevronLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" /> Exit Hardware Node
@@ -157,38 +157,38 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ addToCart, products }) =>
                   <span className={`text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] ${getStatusColor(product.stockStatus)}`}>{product.stockStatus}</span>
                 </div>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black italic uppercase tracking-tighter leading-none break-words">{product.name}</h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/40 font-light leading-relaxed max-w-xl">{product.description}</p>
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black italic uppercase tracking-tighter leading-none break-words">{product.name}</h1>
+              <p className="text-sm sm:text-lg md:text-xl text-white/40 font-light leading-relaxed max-w-xl">{product.description}</p>
             </div>
 
-            <div className="space-y-6 sm:space-y-8 md:space-y-10 pt-8 sm:pt-10 md:pt-12 border-t border-white/5">
-              <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-3 sm:gap-4">
+            <div className="space-y-5 sm:space-y-8 md:space-y-10 pt-6 sm:pt-10 md:pt-12 border-t border-white/5">
+              <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-2 sm:gap-4">
                 <span className="text-[8px] sm:text-[9px] md:text-[10px] font-black text-white/20 uppercase tracking-[0.4em] sm:tracking-[0.6em] md:tracking-[0.8em]">Acquisition Rate</span>
-                <div className="text-4xl sm:text-5xl md:text-6xl font-black italic tracking-tighter">Rs. {product.price.toLocaleString()}</div>
+                <div className="text-3xl sm:text-5xl md:text-6xl font-black italic tracking-tighter">Rs. {product.price.toLocaleString()}</div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-5 md:pt-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-4 md:gap-6 pt-3 sm:pt-5 md:pt-6">
                 <button 
                   onClick={handleBuyNow}
-                  className="btn-primary py-5 sm:py-6 md:py-7 flex items-center justify-center gap-3 sm:gap-4 transition-all text-sm sm:text-base"
+                  className="btn-primary py-4 sm:py-6 md:py-7 flex items-center justify-center gap-2 sm:gap-4 transition-all text-[10px] sm:text-sm md:text-base active:scale-[0.96]"
                 >
-                  BUY NOW <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
+                  BUY NOW <Zap className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                 </button>
                 <button 
                   onClick={handleAddToCart}
                   disabled={adding}
-                  className={`btn-secondary py-5 sm:py-6 md:py-7 flex items-center justify-center gap-3 sm:gap-4 transition-all text-sm sm:text-base ${adding ? 'opacity-50' : ''}`}
+                  className={`btn-secondary py-4 sm:py-6 md:py-7 flex items-center justify-center gap-2 sm:gap-4 transition-all text-[10px] sm:text-sm md:text-base active:scale-[0.96] ${adding ? 'opacity-50' : ''}`}
                 >
-                  {adding ? 'ADDING...' : 'ADD TO CART'} <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
+                  {adding ? 'ADDING...' : 'ADD TO CART'} <ShoppingBag className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
 
-            <div className="space-y-6 sm:space-y-8 md:space-y-10 pt-10 sm:pt-12 md:pt-16">
-              <h4 className="text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] sm:tracking-[0.5em] md:tracking-[0.6em] text-white/20 border-b border-white/5 pb-4 sm:pb-5 md:pb-6 flex items-center gap-3 sm:gap-4">
+            <div className="space-y-5 sm:space-y-8 md:space-y-10 pt-8 sm:pt-12 md:pt-16">
+              <h4 className="text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] sm:tracking-[0.5em] md:tracking-[0.6em] text-white/20 border-b border-white/5 pb-3 sm:pb-5 md:pb-6 flex items-center gap-2 sm:gap-4">
                 <Cpu className="w-3 h-3 sm:w-4 sm:h-4" /> Technical Specifications
               </h4>
-              <div className="grid grid-cols-1 xs:grid-cols-2 gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-6 sm:gap-y-8 md:gap-y-10">
+              <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 md:gap-x-12 gap-y-4 sm:gap-y-8 md:gap-y-10">
                 {Object.entries(product.specs).map(([key, value]) => (
                   <div key={key} className="space-y-1.5 sm:space-y-2 group">
                     <span className="text-[7px] sm:text-[8px] md:text-[9px] font-black text-white/30 uppercase tracking-widest group-hover:text-blue-500 transition-colors">{key}</span>
@@ -198,18 +198,18 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ addToCart, products }) =>
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 pt-10 sm:pt-12 md:pt-16 border-t border-white/5">
-              <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 opacity-40 hover:opacity-100 transition-opacity">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8 lg:gap-10 pt-8 sm:pt-12 md:pt-16 border-t border-white/5">
+              <div className="flex flex-col gap-1.5 sm:gap-3 md:gap-4 opacity-40 hover:opacity-100 transition-opacity">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-                <span className="text-[7px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-tight">Official<br/>Registry</span>
+                <span className="text-[6px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-tight">Official<br/>Registry</span>
               </div>
-              <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 opacity-40 hover:opacity-100 transition-opacity">
+              <div className="flex flex-col gap-1.5 sm:gap-3 md:gap-4 opacity-40 hover:opacity-100 transition-opacity">
                 <Globe className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-                <span className="text-[7px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-tight">Universal<br/>Deployment</span>
+                <span className="text-[6px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-tight">Universal<br/>Deployment</span>
               </div>
-              <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 opacity-40 hover:opacity-100 transition-opacity">
+              <div className="flex flex-col gap-1.5 sm:gap-3 md:gap-4 opacity-40 hover:opacity-100 transition-opacity">
                 <Activity className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-                <span className="text-[7px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-tight">Performance<br/>Benchmarked</span>
+                <span className="text-[6px] sm:text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-tight">Performance<br/>Benchmarked</span>
               </div>
             </div>
           </div>
@@ -218,28 +218,28 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ addToCart, products }) =>
 
       {/* Synergetic Archive */}
       {relatedProducts.length > 0 && (
-        <section className="space-y-16 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-          <div className="flex items-end justify-between border-b border-white/5 pb-8">
-            <div className="space-y-2">
-              <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter">Synergetic <span className="text-outline">Gear</span></h2>
-              <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em]">Optimized Archive Matches</p>
+        <section className="space-y-8 sm:space-y-16 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+          <div className="flex items-end justify-between border-b border-white/5 pb-5 sm:pb-8">
+            <div className="space-y-1 sm:space-y-2">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter">Synergetic <span className="text-outline">Gear</span></h2>
+              <p className="text-[8px] sm:text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] sm:tracking-[0.4em]">Optimized Archive Matches</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
             {relatedProducts.map(related => (
-              <Link to={`/product/${related.id}`} key={related.id} className="group glass p-8 border-white/5 ps-card-hover flex flex-col gap-8">
+              <Link to={`/product/${related.id}`} key={related.id} className="group glass p-3 sm:p-8 border-white/5 ps-card-hover flex flex-col gap-3 sm:gap-8">
                 <div className="relative aspect-square overflow-hidden bg-black/40">
                   <img src={related.image} alt={related.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-1000" />
                 </div>
-                <div className="space-y-4 flex-1 flex flex-col">
-                  <div className="space-y-1">
-                    <span className="text-[8px] font-black text-white/20 uppercase tracking-widest">{related.platform}</span>
-                    <h3 className="text-lg font-bold tracking-tight uppercase italic leading-none">{related.name}</h3>
+                <div className="space-y-2 sm:space-y-4 flex-1 flex flex-col">
+                  <div className="space-y-0.5 sm:space-y-1">
+                    <span className="text-[6px] sm:text-[8px] font-black text-white/20 uppercase tracking-widest">{related.platform}</span>
+                    <h3 className="text-[11px] sm:text-lg font-bold tracking-tight uppercase italic leading-none line-clamp-2">{related.name}</h3>
                   </div>
                   <div className="mt-auto flex items-center justify-between">
-                    <div className="font-black text-xl italic tracking-tighter">Rs. {related.price.toLocaleString()}</div>
-                    <ArrowRight className="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
+                    <div className="font-black text-sm sm:text-xl italic tracking-tighter">Rs. {related.price.toLocaleString()}</div>
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
                   </div>
                 </div>
               </Link>
