@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/serehmmt/playstation.lk/
+    - /bin/cp -R * $DEPLOYPATH
