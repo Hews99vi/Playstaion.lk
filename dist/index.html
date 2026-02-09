@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Security Meta Tags -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+  
+  <!-- Primary Meta Tags -->
+  <title>PlayStation.lk | Sri Lanka's Premier Gaming Hardware Store</title>
+  <meta name="title" content="PlayStation.lk | Sri Lanka's Premier Gaming Hardware Store">
+  <meta name="description" content="Authentic PlayStation consoles, controllers, games & professional repair services in Sri Lanka. Expert repairs, genuine parts, and premium gaming hardware in Colombo.">
+  <meta name="keywords" content="PlayStation Sri Lanka, PS5 Sri Lanka, gaming consoles, console repair, DualSense controller, gaming hardware Colombo, PS5 repair, PlayStation repair">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="author" content="PlayStation.lk">
+  <meta name="theme-color" content="#000000">
+  
+  <!-- Favicon Package -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="PlayStation.lk" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <!-- Robots & Sitemap -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://playstation.lk/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://playstation.lk/">
+  <meta property="og:title" content="PlayStation.lk | Sri Lanka's Premier Gaming Hardware Store">
+  <meta property="og:description" content="Authentic PlayStation consoles, controllers, games & professional repair services in Sri Lanka. Expert repairs, genuine parts, and premium gaming hardware.">
+  <meta property="og:image" content="https://playstation.lk/assets/social-banner.jpg">
+  <meta property="og:site_name" content="PlayStation.lk">
+  <meta property="og:locale" content="en_LK">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://playstation.lk/">
+  <meta name="twitter:title" content="PlayStation.lk | Sri Lanka's Premier Gaming Hardware Store">
+  <meta name="twitter:description" content="Authentic PlayStation consoles, controllers, games & professional repair services in Sri Lanka.">
+  <meta name="twitter:image" content="https://playstation.lk/assets/social-banner.jpg">
+  
+  <!-- Geo Tags for Sri Lanka -->
+  <meta name="geo.region" content="LK-11">
+  <meta name="geo.placename" content="Colombo">
+  <meta name="geo.position" content="6.927079;79.861244">
+  <meta name="ICBM" content="6.927079, 79.861244">
+  
+  <!-- Performance & Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Global overflow prevention */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+    }
+    
+    #root {
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    /* Responsive media defaults */
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Word wrap for long text */
+    * {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      font-style: italic;
+    }
+    
+    *:focus {
+      outline: none;
+    }
+
+    .btn-primary {
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      position: relative;
+      box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    .btn-primary:hover {
+      background-color: #f5f5f5;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-secondary {
+      background-color: #000000;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .glass {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; }
+
+    .ps-card-hover {
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ps-card-hover:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .text-outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+      color: transparent;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== MOBILE-ONLY ENHANCEMENTS ===== */
+    @media (max-width: 1023px) {
+      /* Tap feedback for interactive elements */
+      button, a, [role="button"] {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.08);
+        touch-action: manipulation;
+      }
+
+      /* Active state micro-interaction */
+      .ps-card-hover:active {
+        transform: scale(0.97) !important;
+        transition: transform 0.15s ease !important;
+      }
+
+      .btn-primary:active {
+        transform: scale(0.96) !important;
+        opacity: 0.9;
+      }
+
+      .btn-secondary:active {
+        transform: scale(0.96) !important;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* Smooth scrolling momentum */
+      .mobile-scroll-snap {
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+      }
+
+      .mobile-scroll-snap > * {
+        scroll-snap-align: start;
+      }
+
+      /* Mobile menu slide animation */
+      @keyframes mobileMenuSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .mobile-menu-animate {
+        animation: mobileMenuSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Mobile stagger animation for list items */
+      @keyframes mobileStaggerIn {
+        from {
+          opacity: 0;
+          transform: translateX(-12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Improved touch target sizing */
+      input, select, textarea {
+        font-size: 16px !important; /* Prevents iOS zoom on focus */
+      }
+
+      /* Bottom safe area for notched phones */
+      .mobile-safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+      }
+
+      /* Mobile fade-up on scroll (CSS only version) */
+      @keyframes mobileFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    /* Safe area support for all devices */
+    @supports (padding: env(safe-area-inset-bottom)) {
+      @media (max-width: 1023px) {
+        footer {
+          padding-bottom: calc(16px + env(safe-area-inset-bottom));
+        }
+      }
+    }
+  </style>
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-LKuXENpA.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/react-vendor-BdIzCeZK.js">
+  <link rel="modulepreload" crossorigin href="/assets/ui-vendor-CuJLpas1.js">
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
